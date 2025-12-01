@@ -2,219 +2,137 @@
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
-<title>PUBLIC SERVICE HUB</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="mr">
-<head>
-<meta charset="UTF-8">
-<title>Admin Login</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<title>PUBLIC SERVICE HUB – ADMIN</title>
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial;
+        background:#e9f3ff;
+    }
+    header{
+        background:#005eff;
+        color:white;
+        padding:15px;
+        font-size:24px;
+        text-align:center;
+        font-weight:bold;
+    }
+    .box{
+        background:white;
+        width:90%;
+        margin:20px auto;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 0 8px #888;
+    }
+    input{
+        width:90%;
+        padding:10px;
+        margin:5px 0;
+        border-radius:5px;
+        border:1px solid #ccc;
+        font-size:16px;
+    }
+    button{
+        background:#005eff;
+        color:white;
+        border:none;
+        padding:10px 20px;
+        font-size:16px;
+        border-radius:8px;
+        cursor:pointer;
+    }
+    .candidate-item{
+        background:#dce9ff;
+        padding:10px;
+        margin-top:10px;
+        border-radius:8px;
+    }
+</style>
+
 </head>
 <body>
 
-<div class="login-box">
+<header>PUBLIC SERVICE HUB – ADMIN</header>
+
+<div class="box" id="loginBox">
     <h2>Admin Login</h2>
-
-    <input id="user" type="text" placeholder="Username">
-    <input id="pass" type="password" placeholder="Password">
-
+    <input type="text" id="user" placeholder="8484078016">
+    <input type="83105" id="pass" placeholder="83105">
     <button onclick="login()">Login</button>
-
-    <p id="error"></p>
+    <p id="error" style="color:red;"></p>
 </div>
 
-<script src="assets/js/app.js"></script>
-</body>
-</html>
-<header>
-    <h1>PUBLIC SERVICE HUB</h1>
-    <a href="admin-login.html" class="btn">Admin Login</a>
-</header>
+<div class="box" id="adminPanel" style="display:none;">
+    <h2>Candidate Management</h2>
 
-<section class="home">
-    <h2>निवडणूक प्रचार व सार्वजनिक सेवा</h2>
-    <p>Candidate माहिती, मतदार यादी, सेवा संदेश — सर्व एका ठिकाणी.</p>
-</section>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="mr">
-<head>
-<meta charset="UTF-8">
-<title>Admin Dashboard</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<header>
-    <h1>Admin Dashboard</h1>
-    <a href="candidates.html" class="btn">Manage Candidates</a>
-</header>
-
-<section class="dashboard">
-    <h2>Welcome Admin</h2>
-    <p>येथून तुम्ही Candidate माहिती Update करू शकता.</p>
-</section>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="mr">
-<head>
-<meta charset="UTF-8">
-<title>Candidate Management</title>
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<header>
-    <h1>Candidate Management</h1>
-</header>
-
-<section class="candidate-box">
-
-    <h2>Add New Candidate</h2>
-
-    <input id="cname" type="text" placeholder="Candidate Name">
-    <input id="cparty" type="text" placeholder="Party / Symbol">
-    <textarea id="cinfo" placeholder="Details"></textarea>
+    <input type="text" id="cname" placeholder="Candidate Name">
+    <input type="text" id="party" placeholder="Party / Symbol">
+    <input type="text" id="info" placeholder="Details">
 
     <button onclick="addCandidate()">Add Candidate</button>
 
-</section>
-
-<section class="list-box">
-    <h2>Candidate List</h2>
+    <h3>Candidate List</h3>
     <div id="list"></div>
-</section>
+</div>
 
-<script src="assets/js/app.js"></script>
-</body>
-</html>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #e9f3ff;
-}
-
-header {
-    background: #005eff;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-.btn {
-    background: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    color: #005eff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.home, .dashboard, .candidate-box, .list-box {
-    padding: 20px;
-}
-
-.login-box {
-    margin: 50px auto;
-    width: 300px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 10px #aaa;
-}
-
-.login-box input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-button {
-    background: #005eff;
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 95%;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.candidate-item {
-    background: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-// ------- ADMIN LOGIN -------
-function login() {
+<script>
+function login(){
     let u = document.getElementById("user").value;
     let p = document.getElementById("pass").value;
 
-    if (u === "admin" && p === "Password") {
-        window.location.href = "admin-dashboard.html";
+    if(u==="8484078016" && p==="1234"){
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("adminPanel").style.display="block";
     } else {
-        document.getElementById("error").innerHTML = "Invalid Login!";
+        document.getElementById("error").innerHTML="Invalid Login!";
     }
 }
 
-
-
-// ------- CANDIDATE MANAGEMENT -------
-function loadCandidates() {
+function loadCandidates(){
     let data = JSON.parse(localStorage.getItem("candidates") || "[]");
     let list = document.getElementById("list");
-
-    if (!list) return;
-
     list.innerHTML = "";
 
-    data.forEach((c, i) => {
+    data.forEach((c,i)=>{
         list.innerHTML += `
         <div class="candidate-item">
-            <h3>${c.name}</h3>
-            <p><b>Party:</b> ${c.party}</p>
-            <p>${c.info}</p>
+            <b>${c.name}</b><br>
+            Party: ${c.party}<br>
+            ${c.info}<br><br>
             <button onclick="deleteCandidate(${i})">Delete</button>
-        </div>
-        `;
+        </div>`;
     });
 }
 
-function addCandidate() {
+function addCandidate(){
     let name = document.getElementById("cname").value;
-    let party = document.getElementById("cparty").value;
-    let info = document.getElementById("cinfo").value;
+    let party = document.getElementById("party").value;
+    let info = document.getElementById("info").value;
 
-    if (name === "" || party === "") {
+    if(name==="" || party==="" || info===""){
         alert("Please fill all fields");
         return;
     }
 
     let data = JSON.parse(localStorage.getItem("candidates") || "[]");
-
-    data.push({ name, party, info });
-
+    data.push({name,party,info});
     localStorage.setItem("candidates", JSON.stringify(data));
 
     loadCandidates();
     alert("Candidate Added!");
 }
 
-function deleteCandidate(i) {
+function deleteCandidate(index){
     let data = JSON.parse(localStorage.getItem("candidates") || "[]");
-    data.splice(i, 1);
+    data.splice(index,1);
     localStorage.setItem("candidates", JSON.stringify(data));
     loadCandidates();
 }
 
 window.onload = loadCandidates;
+</script>
+
+</body>
+</html>
