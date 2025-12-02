@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Auto Sender</title>
+<style>
+body { font-family: Arial; padding:20px; }
+.box { background:#fff; padding:20px; border-radius:15px; margin-bottom:20px;
+       box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+button { padding:10px 20px; background:#2563eb; color:white; border-radius:10px; border:none; }
+</style>
+</head>
+
+<body>
+
+<h2>📤 Auto WhatsApp / SMS Sender</h2>
+
+<div class="box">
+    <label>Sending Method:</label>
+    <select id="method">
+        <option value="sms">SMS (Airtel)</option>
+        <option value="whatsapp">WhatsApp API</option>
+    </select>
+</div>
+
+<div class="box">
+    <button onclick="startSending()">Start Auto Send</button>
+</div>
+
+<div id="log" class="box"></div>
+
+<script>
+
+function log(txt){
+    document.getElementById("log").innerHTML += txt + "<br>";
+}
+
+async function startSending() {
+
+    let numbers = localStorage.getItem("number_list");
+    let msg = localStorage.getItem("message_template");
+
+    if(!numbers || !msg){
+        alert("Upload Numbers & Message First!");
+        return;
+    }
+
+    let arr = numbers.split(/\r?\n/);
+    let method = document.getElementById("method").value;
+
+    log("Sending Started...");
+
+    for(let i = 0; i < arr.length; i++){
+        let num = arr[i].trim();
+        if(num === "") continue;
+
+        log("Sending to: " + num);
+
+        if(method === "sms") {
+            await sendSMS(num, msg);
+        } else {
+            await sendWhatsApp(num, msg);
+        }
+
+        await delay(10000); // 10 seconds delay
+    }
+
+    log("<b>Sending Completed ✔</b>");
+}
+
+function delay(ms){
+    return new Promise(res => setTimeout(res, ms));
+}
+
+// ----------- Airtel SMS API -------------
+async function sendSMS(number, message){
+    return fetch("YOUR_AIRTEL_API_URL", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "apiKey": "YOUR_API_KEY",
+            "Authorization": "Bearer YOUR_TOKEN"
+        },
+        body: JSON.stringify({
+            "sender": "SENDERID",
+            "msisdn": number,
+            "message": message
+        })
+    });
+}
+
+// ----------- WhatsApp API --------------
+async function sendWhatsApp(number, message){
+    return fetch("YOUR_WHATSAPP_API_URL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            number: number,
+            message: message
+
+
+<script>
+const UPLOAD_URL = "https://public-working.vercel.app/upload.html";
+
+async function loadUploadPage() {
+    try {
+        const response = await fetch(UPLOAD_URL);
+        const html = await response.text();
+        document.getElementById("uploadContent").innerHTML = html;
+    } catch (e) {
+        document.getElementById("uploadContent").innerHTML = 
+            "<p style='color:red'>Upload page load !</p>";
+        console.error(e);
+    }
+}
+
+window.onload = loadUploadPage;
+</script>
+
+<div id="uploadContent">
+    Loading…
+</div>
+
+
+
+        })
+    });
+}
+
+</script>
+
+</body>
+</html>
