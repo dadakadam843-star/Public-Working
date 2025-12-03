@@ -1,0 +1,138 @@
+let token = null;
+
+// Theme Toggle
+document.getElementById("themeToggle").onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+// Login
+document.getElementById("loginBtn").onclick = async () => {
+  const u = username.value;
+  const p = password.value;
+
+  const r = await fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ username: u, password: p })
+  });
+
+  const j = await r.json();
+  if (r.ok) {
+    token = j.token;
+    loginMsg.innerHTML = "Login Successful ✔️";
+    
+    loginBox.style.display = "none";
+    dashboard.style.display = "block";
+    csvSection.style.display = "block";
+    composeSection.style.display = "block";
+    templateSection.style.display = "block";
+    bannerSection.style.display = "block";
+    queueSection.style.display = "block";
+    historySection.style.display = "block";
+
+    loadQueue();
+    loadHistory();
+    loadTemplates();
+  }
+};
+
+// CSV Upload
+csvUploadBtn.onclick = async () => {
+  const f = csvFileInput.files[0];
+  if (!f) return alert("Select CSV");
+
+  const fd = new FormData();
+  fd.append("file", f);
+
+  const r = await fetch("/api/upload/csv", { method: "POST", body: fd });
+  csvStatus.innerHTML = "Uploaded ✔️";
+};
+
+// Save Template
+saveTemplateBtn.onclick = () => {
+  const txt = templateText.value.trim();
+  if (!txt) return;
+
+  let arr = JSON.parse(localStorage.getItem("templates") || "[]");
+  arr.push(txt);
+  localStorage.setItem("templates", JSON.stringify(arr));
+
+  loadTemplates();
+};
+
+// Load Templates
+function loadTemplates() {
+  let arr = JSON.parse(localStorage.getItem("templates") || "[]");
+  templateList.innerHTML = arr
+    .map(
+      (t, i) =>
+        `<div class="template">
+          <p>${t}</p>
+          <button onclick="useTemplate(${i})">Use</button>
+          <button onclick="deleteTemplate(${i})">Delete</button>
+        </div>`
+    )
+    .join("");
+}
+
+function useTemplate(i) {
+  let arr = JSON.parse(localStorage.getItem("templates") || "[]");
+  messageText.value = arr[i];
+}
+
+function deleteTemplate(i) {
+  let arr = JSON.parse(localStorage.getItem("templates") || "[]");
+  arr.splice(i, 1);
+  localStorage.setItem("templates", JSON.stringify(arr));
+  loadTemplates();
+}
+
+// Queue Message
+queueBtn.onclick = async () => {
+  const msg = messageText.value;
+  const nums = manualNumbers.value.split(",").map(n => n.trim());
+
+  const r = await fetch("/api/messages/queue", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ phones: nums, message: msg })
+  });
+
+  queueStatus.innerHTML = "Queued ✔️";
+  loadQueue();
+};
+
+// QUEUE
+refreshQueue.onclick = loadQueue;
+async function loadQueue() {
+  const r = await fetch("/api/messages/queue");
+  const rows = await r.json();
+
+  queueList.innerHTML = rows
+    .map(
+      (x) =>
+        `<div class="q">
+          <b>${x.phone}</b> — <span>${x.status}</span>
+          <div>${x.message}</div>
+        </div>`
+    )
+    .join("");
+}
+
+// HISTORY
+refreshHistory.onclick = loadHistory;
+async function loadHistory() {
+  const r = await fetch("/api/messages/queue");
+  const rows = await r.json();
+  const sent = rows.filter((x) => x.status === "sent");
+
+  historyList.innerHTML = sent
+    .map(
+      (x) =>
+        `<div class="h">
+          <b>${x.phone}</b> — SENT
+          <div>${x.message}</div>
+        </div>`
+    )
+    .join("");
+} 
