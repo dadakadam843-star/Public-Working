@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Public Working</title>
-  <style>
-    body { font-family: sans-serif; padding: 30px; background:#f2f2f2; }
-    h1 { color:#333; }
-    a.button { 
-      display:inline-block; background:#007bff; color:#fff; padding:12px 20px; 
-      border-radius:8px; text-decoration:none; font-size:18px;
-    }
-  </style>
+  <title>Login / Signup</title>
 </head>
 <body>
-  <h1>Public Working Portal</h1>
-  <p>उमेदवार माहिती, Auto Message, Banner Upload, सगळं इथे उपलब्ध.</p>
 
-  <a class="button" href="login.html">Admin Login</a>
+  <h2>Firebase Login</h2>
+
+  <input id="email" type="text" placeholder="Email"><br><br>
+  <input id="password" type="password" placeholder="Password"><br><br>
+
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Login</button>
+
+  <script type="module">
+    // Firebase imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
+    from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+    // Your Firebase Config (PASTE FROM SCREENSHOT)
+    const firebaseConfig = {
+      apiKey: "AIzaSyDW9Au99PFKyMz7kBKyPIKIwgNpxv27s-Y",
+      authDomain: "public-working.firebaseapp.com",
+      projectId: "public-working",
+      storageBucket: "public-working.firebasestorage.app",
+      messagingSenderId: "266169229854",
+      appId: "1:266169229854:web:300668fcf823e6d714840f",
+      measurementId: "G-L6CJBWYPXN"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Signup Function
+    window.signup = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Signup Successful!"))
+        .catch(err => alert(err.message));
+    }
+
+    // Login Function
+    window.login = function () {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Login Successful!"))
+        .catch(err => alert(err.message));
+    }
+  </script>
+
 </body>
 </html>
