@@ -1,1 +1,39 @@
-<!DOCTYPE html><html><body><h1>Admin Login</h1></body></html>
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+<h2>User Login</h2>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module">
+import { auth, signInWithEmailAndPassword } from './firebase.js';
+
+window.login = function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            window.location.href = "admin.html"; 
+        })
+        .catch(err => {
+            document.getElementById("msg").innerHTML = err.message;
+        });
+}
+</script>
+
+</body>
+</html>
