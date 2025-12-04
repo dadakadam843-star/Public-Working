@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Working Admin Panel</title>
+
+<style>
+    body { margin:0; font-family:Arial; background:#f2f2f2; }
+    .topbar { background:#FF6600; padding:15px; color:white; font-size:22px; text-align:center; }
+    .menu { background:white; padding:10px; display:flex; justify-content:space-around; border-bottom:1px solid #ddd; }
+    .menu button { padding:10px; border:none; background:#FF6600; color:white; border-radius:8px; }
+    .box { background:white; margin:20px; padding:20px; border-radius:10px; box-shadow:0 0 10px #ccc; }
+</style>
+
 </head>
 <body>
 
-<h2>Admin Dashboard</h2>
+<div class="topbar">Public Working - Admin Dashboard</div>
 
-<p>Login Successfully!</p>
+<div class="menu">
+    <button onclick="showPage('banner')">बॅनर Upload</button>
+    <button onclick="showPage('whatsapp')">WhatsApp Auto</button>
+    <button onclick="showPage('candidate')">उमेदवार माहिती</button>
+    <button onclick="showPage('voter')">मतदार यादी</button>
+    <button onclick="logout()">Logout</button>
+</div>
 
-<button onclick="logout()">Logout</button>
+<!-- Banner Upload -->
+<div id="banner" class="box" style="display:block;">
+    <h3>बॅनर Upload</h3>
+    <input type="file"><br><br>
+    <button>Upload</button>
+</div>
+
+<!-- WhatsApp Auto Sender -->
+<div id="whatsapp" class="box" style="display:none;">
+    <h3>WhatsApp Message Sender</h3>
+    <input id="msg" type="text" placeholder="मजकूर लिहा" style="width:100%; padding:10px;"><br><br>
+    <button>Send</button>
+</div>
+
+<!-- Candidate Info -->
+<div id="candidate" class="box" style="display:none;">
+    <h3>उमेदवार माहिती</h3>
+    <input type="text" placeholder="नाव"><br><br>
+    <input type="text" placeholder="पद"><br><br>
+    <textarea placeholder="वर्णन"></textarea><br><br>
+    <button>Save</button>
+</div>
+
+<!-- Voter List Upload -->
+<div id="voter" class="box" style="display:none;">
+    <h3>मतदार यादी Upload</h3>
+    <input type="file"><br><br>
+    <button>Upload</button>
+</div>
 
 <script type="module" src="firebase.js"></script>
 
@@ -22,6 +65,15 @@ window.logout = function () {
     signOut(auth).then(() => {
         window.location.href = "login.html";
     });
+}
+
+window.showPage = function(page){
+    document.getElementById("banner").style.display = "none";
+    document.getElementById("whatsapp").style.display = "none";
+    document.getElementById("candidate").style.display = "none";
+    document.getElementById("voter").style.display = "none";
+
+    document.getElementById(page).style.display = "block";
 }
 </script>
 
