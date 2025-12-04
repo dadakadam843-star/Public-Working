@@ -27,7 +27,7 @@ window.login = function () {
 
     signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-            window.location.href = "admin.html"; 
+            window.location.href = "admin.html";
         })
         .catch(err => {
             document.getElementById("msg").innerHTML = err.message;
