@@ -1,1 +1,27 @@
-<!DOCTYPE html><html><body><h1>Admin Dashboard</h1></body></html>
+<!<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h2>Welcome Admin!</h2>
+
+<button onclick="logout()">Logout</button>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module">
+import { auth, signOut } from './firebase.js';
+
+window.logout = function () {
+    signOut(auth).then(() => {
+        window.location.href = "login.html";
+    });
+}
+</script>
+
+</body>
+</html>
