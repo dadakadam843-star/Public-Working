@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Signup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Signup</title>
 </head>
 <body>
-  
 
   <h2>Firebase Login</h2>
 
@@ -22,12 +21,12 @@
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
     from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-    // Your Firebase Config (PASTE FROM SCREENSHOT)
+    // Your Firebase Config
     const firebaseConfig = {
-      apiKey: "AIzaSyDW9Au99PFKyMz7kBKyPIKIwgNpxv27s-Y",
+      apiKey: "AIzaSyDW9Au99PFKyMz7kBKypIKPIOex_ZkJ3uY",
       authDomain: "public-working.firebaseapp.com",
       projectId: "public-working",
-      storageBucket: "public-working.firebasestorage.app",
+      storageBucket: "public-working.appspot.com",
       messagingSenderId: "266169229854",
       appId: "1:266169229854:web:300668fcf823e6d714840f",
       measurementId: "G-L6CJBWYPXN"
@@ -43,9 +42,9 @@
       const password = document.getElementById("password").value;
 
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Signup Successful!"))
-        .catch(err => alert(err.message));
-    }
+        .then(() => alert("Signup Successfully"))
+        .catch((error) => alert(error.message));
+    };
 
     // Login Function
     window.login = function () {
@@ -53,9 +52,9 @@
       const password = document.getElementById("password").value;
 
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Login Successful!"))
-        .catch(err => alert(err.message));
-    }
+        .then(() => alert("Login Successful"))
+        .catch((error) => alert(error.message));
+    };
   </script>
 
 </body>
