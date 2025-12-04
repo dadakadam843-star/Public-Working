@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script type="module" src="firebase.js"></script>
+
+  <style>
+    body { font-family: sans-serif; padding:20px; }
+    textarea, input { width:100%; padding:10px; margin:10px 0; }
+    button { padding:10px 15px; background:#28a745; color:#fff; border:none; }
+  </style>
+</head>
+<body>
+
+<h1>Admin Panel</h1>
+
+<h3>नवीन Banner Upload</h3>
+<input type="file" id="banner" />
+
+<h3>उमेदवार माहिती</h3>
+<textarea id="info" rows="4"></textarea>
+
+<button onclick="saveData()">Save</button>
+
+<script type="module">
+  import { db, storage, ref, uploadBytes, setDoc, doc } from "./firebase.js";
+
+  window.saveData = async function () {
+    let file = document.getElementById("banner").files[0];
+    let info = document.getElementById("info").value;
+
+    if (file) {
+      let r = ref(storage, "banner.jpg");
+      await uploadBytes(r, file);
+    }
+
+    await setDoc(doc(db, "settings", "details"), {
+      info: info, 
+      updated: new Date().toISOString()
+    });
+
+    alert("Saved Successfully!");
+  };
+</script>
+
+</body>
+</html>
