@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+
+<h2>Create Account</h2>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="signup()">Signup</button>
+
+<p id="msg"></p>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module">
+import { auth, createUserWithEmailAndPassword } from './firebase.js';
+
+window.signup = function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            document.getElementById("msg").innerHTML = "Signup Successful!";
+        })
+        .catch(err => {
+            document.getElementById("msg").innerHTML = err.message;
+        });
+}
+</script>
+
+</body>
+</html>
