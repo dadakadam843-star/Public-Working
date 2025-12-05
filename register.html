@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Create User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        padding: 20px;
+    }
+    .box {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    button {
+        background: #077bff;
+        color: white;
+        border: none;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Admin Only – Create User</h2>
+
+    <input id="email" type="email" placeholder="User Email">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="createUser()">Create User</button>
+
+    <p id="msg" style="color:red; margin-top:15px;"></p>
+</div>
+
+<!-- Firebase 9 CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+<script>
+    // तुमचा firebase config
+    const firebaseConfig = {
+        apiKey: "AIzaSyDW9Au99PFKyMz7kBKypIKPIOex_ZkJ3uY",
+        authDomain: "public-working.firebaseapp.com",
+        projectId: "public-working",
+        storageBucket: "public-working.firebasestorage.app",
+        messagingSenderId: "266169229854",
+        appId: "1:266169229854:web:300668fcf823e6d714840f",
+        measurementId: "G-L6CJBWYPXN"
+    };
+
+    // Init Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // 🔒 ADMIN EMAIL SET HERE
+    const ADMIN_EMAIL = "dadakadam843@gmail.com";
+
+    // Create user function
+    function createUser() {
+        const msg = document.getElementById("msg");
+
+        // Check if current user is admin
+        if (!auth.currentUser || auth.currentUser.email !== ADMIN_EMAIL) {
+            msg.textContent = "❌ फक्त admin userच नवीन account तयार करू शकतो.";
+            return;
+        }
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                msg.style.color = "green";
+                msg.textContent = "✔ User Successfully Created!";
+            })
+            .catch((e) => {
+                msg.textContent = e.message;
+            });
+    }
+</script>
+</body>
+</html>
