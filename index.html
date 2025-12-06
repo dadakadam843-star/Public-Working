@@ -1,41 +1,30 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Working</title>
-    <style>
-        body { font-family: Arial; text-align: center; padding: 40px; }
-        a { 
-            display: block; 
-            margin: 15px auto; 
-            padding: 12px; 
-            width: 200px;
-            background: #ff6600; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 10px; 
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>WhatsApp Sender</title>
 </head>
 <body>
 
-    <h2>Public Working (Welcome)</h2>
+<h3>WhatsApp Message Send</h3>
 
-    <a href="login.html">Login</a>
-    <a href="signup.html">Signup</a>
+<input id="to" placeholder="91XXXXXXXXXX"><br><br>
+<textarea id="body" placeholder="Message"></textarea><br><br>
 
-    <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/14798024855" target="_blank" 
-   style="position: fixed; bottom: 20px; right: 20px; 
-          background: #25D366; color: white; 
-          padding: 12px 18px; border-radius: 50px; 
-          text-decoration: none; font-weight: bold;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-    WhatsApp Chat
+<button onclick="sendMsg()">Send</button>
+<p id="status"></p>
 
-</a>
-    
+<script>
+function sendMsg(){
+ fetch("send.php",{
+  method:"POST",
+  headers:{"Content-Type":"application/x-www-form-urlencoded"},
+  body:"to="+to.value+"&body="+body.value
+ })
+ .then(r=>r.text())
+ .then(d=>status.innerText=d);
+}
+</script>
+
 </body>
 </html>
