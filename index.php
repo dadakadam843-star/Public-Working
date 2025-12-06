@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h3>Send WhatsApp Message</h3>
 
 <form method="POST">
-  <input name="phone" placeholder="91XXXXXXXXXX" required><br><br>
+  <input name="phone" placeholder="919607023105" required><br><br>
   <textarea name="message" placeholder="Message" required></textarea><br><br>
   <button type="submit">Send</button>
 </form>
