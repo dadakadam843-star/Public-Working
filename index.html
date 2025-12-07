@@ -2,23 +2,46 @@
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
-  <title>आपला उमेदवार</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Prashant Public – Admin Panel</title>
 </head>
 <body>
 
-<div class="card">
-  <img src="candidate.jpg" alt="Candidate">
-  <h2>आपला उमेदवार</h2>
+<h2>WhatsApp Message Send</h2>
 
-  <p><b>नाव:</b> __________________</p>
-  <p><b>पक्ष:</b> __________________</p>
-  <p><b>चिन्ह:</b> __________________</p>
+<input type="text" id="number" placeholder="91xxxxxxxxxx"><br><br>
+<textarea id="msg" placeholder="Message लिहा"></textarea><br><br>
 
-  <a class="btn" href="https://wa.me/919607023105?text=Hi">
-    WhatsApp वर Hi पाठवा
-  </a>
-</div>
+<button onclick="sendMsg()">Send WhatsApp</button>
+
+<p id="status"></p>
+
+<script>
+function sendMsg() {
+
+  let number = document.getElementById("number").value;
+  let msg = document.getElementById("msg").value;
+
+  let url = "https://api.ultramsg.com/instance154634/messages/chat";
+  let data = new URLSearchParams();
+  data.append("token", "29kqgig3hiitzxxta");
+  data.append("to", number);
+  data.append("body", msg);
+
+  fetch(url, {
+    method: "POST",
+    body: data
+  })
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById("status").innerText =
+      "Message Request Sent ✅ UltraMsg check करा";
+  })
+  .catch(err => {
+    document.getElementById("status").innerText =
+      "Error ❌";
+  });
+}
+</script>
 
 </body>
 </html>
