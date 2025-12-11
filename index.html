@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>प्रशांत कल्पना राजू कदम – गरीब नेतृत्व</title>
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff3e0;color:#222}
+    header{background:#ff6f00;color:#fff;padding:18px;text-align:center;font-size:22px;font-weight:bold}
+    .hero{background:#ffa64d;padding:28px;text-align:center;color:#fff}
+    .hero img{width:220px;height:220px;border-radius:12px;border:5px solid #fff;object-fit:cover;display:block;margin:0 auto 12px}
+    .section{max-width:900px;margin:18px auto;padding:16px}
+    .box{background:#fff;padding:18px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-left:6px solid #ff6f00;margin-bottom:14px}
+    h2{color:#e65100;margin:0 0 8px}
+    .btn{display:inline-block;padding:10px 14px;background:#ff6f00;color:#fff;border-radius:6px;text-decoration:none;font-weight:bold}
+    footer{background:#ff6f00;color:#fff;padding:12px;text-align:center;margin-top:18px}
+    a.social{margin-right:10px;color:#e65100;text-decoration:none;font-weight:bold}
+  </style>
+</head>
+<body>
+  <header id="site-title">प्रशांत कल्पना राजू कदम – गरीब नेतृत्व</header>
+
+  <div class="hero">
+    <img id="hero-photo" src="your-photo.jpg" alt="Prashant Photo" onerror="this.style.display='none'">
+    <h2 id="hero-slogan">जनतेसाठी सेवा, आपल्या विश्वासाची साथ</h2>
+    <p id="hero-sub">प्रशांत कल्पना राजू कदम — भारत नगर, प्रभाग क्र.3</p>
+    <a class="btn" href="tel:8484078016">📞 कॉल करा: 84840 78016</a>
+  </div>
+
+  <div class="section">
+    <div class="box">
+      <h2>माझी ओळख</h2>
+      <p id="about">मी प्रशांत कल्पना राजू कदम — गरीब नेतृत्व.' जनतेसाठी काम करण्याचा माझा कटाक्ष आहे.</p>
+    </div>
+
+    <div class="box">
+      <h2>आजचा संदेश</h2>
+      <div id="daily-message">👉 “जनतेच्या हक्कासाठी आम्ही सदैव तत्पर”</div>
+    </div>
+
+    <div class="box">
+      <h2>संपर्क व सोशल</h2>
+      <p id="contact-phone">📞 84840 78016</p>
+      <p>📍 <span id="area">भारत नगर, प्रभाग क्र.3, सांगली–मिरज–कुपवाड</span></p>
+      <p>
+        <a id="fb" class="social" href="#" target="_blank">Facebook</a>
+        <a id="ig" class="social" href="#" target="_blank">Instagram</a>
+      </p>
+    </div>
+  </div>
+
+  <footer>© 2025 Prashant Public | सर्व हक्क राखीव</footer>
+
+<script>
+async function loadContent(){
+  try{
+    const res = await fetch('content.json?cachebust=' + Date.now());
+    if(!res.ok) return;
+    const d = await res.json();
+    document.getElementById('site-title').textContent = d.title || document.getElementById('site-title').textContent;
+    const photo = d.photo || 'your-photo.jpg';
+    const hero = document.getElementById('hero-photo');
+    hero.src = photo;
+    hero.style.display = photo ? 'block' : 'none';
+    document.getElementById('hero-slogan').textContent = d.slogan || document.getElementById('hero-slogan').textContent;
+    document.getElementById('hero-sub').textContent = d.sub || '';
+    document.getElementById('about').textContent = d.about || document.getElementById('about').textContent;
+    document.getElementById('daily-message').innerHTML = d.today || document.getElementById('daily-message').innerHTML;
+    document.getElementById('contact-phone').textContent = '📞 ' + (d.phone || '84840 78016');
+    document.getElementById('area').textContent = d.area || document.getElementById('area').textContent;
+    if(d.facebook) document.getElementById('fb').href = d.facebook;
+    if(d.instagram) document.getElementById('ig').href = d.instagram;
+  }catch(e){ console.warn(e); }
+}
+loadContent();
+</script>
+</body>
+</html>
