@@ -2,78 +2,148 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>प्रशांत कल्पना राजू कदम – गरीब नेतृत्व</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prashant Public</title>
+
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff3e0;color:#222}
-    header{background:#ff6f00;color:#fff;padding:18px;text-align:center;font-size:22px;font-weight:bold}
-    .hero{background:#ffa64d;padding:28px;text-align:center;color:#fff}
-    .hero img{width:220px;height:220px;border-radius:12px;border:5px solid #fff;object-fit:cover;display:block;margin:0 auto 12px}
-    .section{max-width:900px;margin:18px auto;padding:16px}
-    .box{background:#fff;padding:18px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-left:6px solid #ff6f00;margin-bottom:14px}
-    h2{color:#e65100;margin:0 0 8px}
-    .btn{display:inline-block;padding:10px 14px;background:#ff6f00;color:#fff;border-radius:6px;text-decoration:none;font-weight:bold}
-    footer{background:#ff6f00;color:#fff;padding:12px;text-align:center;margin-top:18px}
-    a.social{margin-right:10px;color:#e65100;text-decoration:none;font-weight:bold}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: orange;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .post {
+      font-size: 14px;
+      color: #444;
+      margin: 5px 0;
+    }
+
+    .msg {
+      font-size: 14px;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .whatsapp {
+      background: #25D366;
+    }
+
+    .facebook {
+      background: #1877F2;
+    }
+
+    .form {
+      background: #673ab7;
+    }
+
+    iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      padding: 10px;
+    }
   </style>
 </head>
+
 <body>
-  <header id="site-title">प्रशांत कल्पना राजू कदम – गरीब नेतृत्व</header>
 
-  <div class="hero">
-    <img id="hero-photo" src="your-photo.jpg" alt="Prashant Photo" onerror="this.style.display='none'">
-    <h2 id="hero-slogan">जनतेसाठी सेवा, आपल्या विश्वासाची साथ</h2>
-    <p id="hero-sub">प्रशांत कल्पना राजू कदम — भारत नगर, प्रभाग क्र.3</p>
-    <a class="btn" href="tel:8484078016">📞 कॉल करा: 84840 78016</a>
+  <header>
+    <h2>Prashant Public</h2>
+    <p>जनतेसाठी सेवा</p>
+  </header>
+
+  <div class="card">
+    <!-- PHOTO -->
+    <img src="https://i.imgur.com/6XKQYQm.jpg" alt="Prashant Kadam">
+
+    <!-- NAME -->
+    <div class="name">प्रशांत राजू कदम</div>
+    <div class="post">प्रभाग क्रमांक 3 (SC)</div>
+
+    <!-- MESSAGE -->
+    <div class="msg">
+      मी प्रशांत राजू कदम,<br>
+      आज तुमच्याकडे मत मागायला नाही आलो.<br><br>
+      👉 कृपया मला मतदान करू नका.<br>
+      👉 आधी माझं काम पाहा.<br><br>
+      विश्वास, प्रामाणिकपणा आणि सेवा हाच माझा अजेंडा आहे.
+    </div>
+
+    <!-- BUTTONS -->
+    <a class="btn whatsapp" 
+       href="https://wa.me/918484087016" target="_blank">
+       📲 WhatsApp वर संपर्क करा
+    </a>
+
+    <a class="btn facebook" 
+       href="https://facebook.com" target="_blank">
+       👍 Facebook Page Like करा
+    </a>
+
+    <a class="btn form" 
+       href="#form">
+       📝 तक्रार / सूचना द्या
+    </a>
   </div>
 
-  <div class="section">
-    <div class="box">
-      <h2>माझी ओळख</h2>
-      <p id="about">मी प्रशांत कल्पना राजू कदम — गरीब नेतृत्व.' जनतेसाठी काम करण्याचा माझा कटाक्ष आहे.</p>
-    </div>
+  <!-- GOOGLE FORM -->
+  <div id="form" class="card">
+    <h3>तक्रार / सूचना फॉर्म</h3>
 
-    <div class="box">
-      <h2>आजचा संदेश</h2>
-      <div id="daily-message">👉 “जनतेच्या हक्कासाठी आम्ही सदैव तत्पर”</div>
-    </div>
-
-    <div class="box">
-      <h2>संपर्क व सोशल</h2>
-      <p id="contact-phone">📞 84840 78016</p>
-      <p>📍 <span id="area">भारत नगर, प्रभाग क्र.3, सांगली–मिरज–कुपवाड</span></p>
-      <p>
-        <a id="fb" class="social" href="#" target="_blank">Facebook</a>
-        <a id="ig" class="social" href="#" target="_blank">Instagram</a>
-      </p>
-    </div>
+    <iframe 
+      src="https://forms.gle/YZgDz1vS6otwsvn58">
+    </iframe>
   </div>
 
-  <footer>© 2025 Prashant Public | सर्व हक्क राखीव</footer>
+  <footer>
+    © 2025 Prashant Public | Developed for public service
+  </footer>
 
-<script>
-async function loadContent(){
-  try{
-    const res = await fetch('content.json?cachebust=' + Date.now());
-    if(!res.ok) return;
-    const d = await res.json();
-    document.getElementById('site-title').textContent = d.title || document.getElementById('site-title').textContent;
-    const photo = d.photo || 'your-photo.jpg';
-    const hero = document.getElementById('hero-photo');
-    hero.src = photo;
-    hero.style.display = photo ? 'block' : 'none';
-    document.getElementById('hero-slogan').textContent = d.slogan || document.getElementById('hero-slogan').textContent;
-    document.getElementById('hero-sub').textContent = d.sub || '';
-    document.getElementById('about').textContent = d.about || document.getElementById('about').textContent;
-    document.getElementById('daily-message').innerHTML = d.today || document.getElementById('daily-message').innerHTML;
-    document.getElementById('contact-phone').textContent = '📞 ' + (d.phone || '84840 78016');
-    document.getElementById('area').textContent = d.area || document.getElementById('area').textContent;
-    if(d.facebook) document.getElementById('fb').href = d.facebook;
-    if(d.instagram) document.getElementById('ig').href = d.instagram;
-  }catch(e){ console.warn(e); }
-}
-loadContent();
-</script>
 </body>
 </html>
