@@ -2,148 +2,142 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prashant Public</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prashant Public</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
-
-    header {
-      background: orange;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    .card {
-      background: white;
-      max-width: 400px;
-      margin: 20px auto;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .name {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .post {
-      font-size: 14px;
-      color: #444;
-      margin: 5px 0;
-    }
-
-    .msg {
-      font-size: 14px;
-      margin: 15px 0;
-      line-height: 1.6;
-    }
-
-    .btn {
-      display: block;
-      text-decoration: none;
-      color: white;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .whatsapp {
-      background: #25D366;
-    }
-
-    .facebook {
-      background: #1877F2;
-    }
-
-    .form {
-      background: #673ab7;
-    }
-
-    iframe {
-      width: 100%;
-      height: 900px;
-      border: none;
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: #777;
-      padding: 10px;
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
+}
+header{
+  background:#ff9800;
+  color:#fff;
+  padding:15px;
+  text-align:center;
+}
+.card{
+  background:#fff;
+  max-width:420px;
+  margin:15px auto;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  text-align:center;
+}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+.name{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+}
+.post{
+  color:#444;
+  font-size:14px;
+}
+.msg{
+  font-size:14px;
+  line-height:1.6;
+  margin:15px 0;
+}
+.btn{
+  display:block;
+  padding:12px;
+  margin:10px 0;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+}
+.whatsapp{background:#25D366;}
+.gallery{background:#ff5722;}
+.form{background:#673ab7;}
+audio{width:100%;margin-top:10px;}
+iframe{width:100%;height:850px;border:none;}
+footer{
+  text-align:center;
+  font-size:13px;
+  color:#777;
+  padding:10px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h2>Prashant Public</h2>
-    <p>जनतेसाठी सेवा</p>
-  </header>
+<header>
+<h2>Prashant Public</h2>
+<p>जनतेसाठी सेवा</p>
+</header>
 
-  <div class="card">
-    <!-- PHOTO -->
-    <img src="https://i.imgur.com/6XKQYQm.jpg" alt="Prashant Kadam">
+<div class="card">
 
-    <!-- NAME -->
-    <div class="name">प्रशांत राजू कदम</div>
-    <div class="post">प्रभाग क्रमांक 3 (SC)</div>
+<!-- PROFILE PHOTO -->
+<img src="profile.jpg" alt="Prashant Kadam">
 
-    <!-- MESSAGE -->
-    <div class="msg">
-      मी प्रशांत राजू कदम,<br>
-      आज तुमच्याकडे मत मागायला नाही आलो.<br><br>
-      👉 कृपया मला मतदान करू नका.<br>
-      👉 आधी माझं काम पाहा.<br><br>
-      विश्वास, प्रामाणिकपणा आणि सेवा हाच माझा अजेंडा आहे.
-    </div>
+<div class="name">प्रशांत राजू कदम</div>
+<div class="post">प्रभाग क्रमांक 3 (SC)</div>
 
-    <!-- BUTTONS -->
-    <a class="btn whatsapp" 
-       href="https://wa.me/918484087016" target="_blank">
-       📲 WhatsApp वर संपर्क करा
-    </a>
+<!-- DAILY MESSAGE -->
+<div class="msg" id="dailyMsg">
+मी प्रशांत राजू कदम, प्रभाग क्रमांक 3 (SC) मधून निवडणूक लढवत आहे.
 
-    <a class="btn facebook" 
-       href="https://facebook.com" target="_blank">
-       👍 Facebook Page Like करा
-    </a>
+आज मी तुमच्यासमोर एक वेगळेच पण मनापासूनचे आवाहन करतो —
+कृपया मला मतदान करू नका.
 
-    <a class="btn form" 
-       href="#form">
-       📝 तक्रार / सूचना द्या
-    </a>
-  </div>
+मला सत्ता नको, पद नको.
+मला फक्त तुमचा विश्वास आणि समाजाचा सन्मान हवा आहे.
 
-  <!-- GOOGLE FORM -->
-  <div id="form" class="card">
-    <h3>तक्रार / सूचना फॉर्म</h3>
+धन्यवाद
+– प्रशांत राजू कदम
+</div>
 
-    <iframe 
-      src="https://forms.gle/YZgDz1vS6otwsvn58">
-    </iframe>
-  </div>
+<!-- AUDIO -->
+<audio controls>
+<source src="prashant-kadam.mp3" type="audio/mpeg">
+</audio>
 
-  <footer>
-    © 2025 Prashant Public | Developed for public service
-  </footer>
+<!-- WHATSAPP SHARE (PUBLIC) -->
+<a id="waShare" class="btn whatsapp" target="_blank">
+📢 हा संदेश WhatsApp वर शेअर करा
+</a>
+
+<!-- GALLERY -->
+<a class="btn gallery"
+href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
+target="_blank">
+📸 रोजचे कामाचे फोटो पाहा
+</a>
+
+<!-- COMPLAINT FORM -->
+<a class="btn form" href="#form">
+📝 तक्रार / सूचना द्या
+</a>
+
+</div>
+
+<!-- GOOGLE FORM EMBED -->
+<div id="form" class="card">
+<h3>तक्रार / सूचना फॉर्म</h3>
+<iframe
+src="https://forms.gle/YZgDz1vS6otwsvn58">
+</iframe>
+</div>
+
+<footer>
+© 2025 Prashant Public
+</footer>
+
+<script>
+const msg = document.getElementById("dailyMsg").innerText;
+document.getElementById("waShare").href =
+"https://wa.me/?text=" + encodeURIComponent(msg + "\n\nवेबसाइट:\n" + window.location.href);
+</script>
 
 </body>
 </html>
