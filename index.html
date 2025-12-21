@@ -1,113 +1,88 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-  <meta charset="UTF-8">
-  <title>Prashant Public</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prashant Public</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MGLX64MVY5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MGLX64MVY5');
-  </script>
-
-  <style>
-    body{font-family:Arial, sans-serif;margin:0;background:#fff;color:#222}
-    header{padding:15px;text-align:center;background:#ff8c00;color:#fff}
-    .banner img{width:100%;max-height:300px;object-fit:cover}
-    section{padding:15px}
-    h2{text-align:center}
-    .btn{
-      display:block;
-      width:90%;
-      margin:10px auto;
-      padding:12px;
-      text-align:center;
-      background:#25D366;
-      color:#fff;
-      text-decoration:none;
-      border-radius:8px;
-      font-size:16px;
-    }
-    .btn.fb{background:#1877f2}
-    .btn.insta{background:#e1306c}
-    .btn.yt{background:#ff0000}
-    .btn.gallery{background:#555}
-    audio{width:100%;margin-top:10px}
-  </style>
+<style>
+body{margin:0;font-family:Arial;background:#f2f2f2}
+header{background:#ff9800;color:#fff;padding:15px;text-align:center}
+.card{background:#fff;max-width:420px;margin:15px auto;padding:15px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center}
+.card img{width:100%;border-radius:10px}
+.name{font-size:20px;font-weight:bold;margin-top:10px}
+.post{font-size:14px;color:#444}
+.msg{font-size:15px;line-height:1.7;margin:15px 0}
+.btn{display:block;padding:12px;margin:10px 0;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold}
+.whatsapp{background:#25D366}
+.gallery{background:#ff5722}
+.form{background:#673ab7}
+audio{width:100%;margin-top:10px}
+iframe{width:100%;height:850px;border:none}
+footer{text-align:center;font-size:13px;color:#777;padding:10px}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>प्रशांत राजू कदम</h1>
-  <p>प्रभाग क्रमांक 3 (SC)</p>
-  <p>गरीब नेतृत्व</p>
+<h2>Prashant Public</h2>
+<p>जनतेसाठी सेवा</p>
 </header>
 
-<!-- BANNER -->
-<div class="banner">
-  <img src="your-photo.jpg" alt="Banner">
+<div class="card">
+
+<img src="your-photo.jpg" alt="Prashant Kadam">
+
+<div class="name">प्रशांत राजू कदम</div>
+<div class="post">प्रभाग क्रमांक 3 (SC)</div>
+
+<div class="msg" id="dailyMsg">
+लोड होत आहे...
 </div>
 
-<!-- DAILY MESSAGE -->
-<section>
-  <h2>आजचा संदेश</h2>
-  <p>
-    मी प्रशांत राजू कदम, प्रभाग क्रमांक 3 (SC) मधून निवडणूक लढवत आहे.<br><br>
-    आज मी तुमच्यासमोर एक वेगळेच पण मनापासूनचे आवाहन करतो — <b>कृपया मला मतदान करू नका.</b><br><br>
-    कारण मला सत्ता नको, पद नको. मला फक्त तुमचा विश्वास आणि समाजाचा सन्मान हवा आहे.
-  </p>
+<audio controls>
+<source src="prashant-kadam.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- PUBLIC WHATSAPP SHARE -->
-  <a class="btn"
-     target="_blank"
-     href="https://wa.me/?text=मी%20प्रशांत%20राजू%20कदम%20प्रभाग%20क्रमांक%203%20(SC)%20मधून%20निवडणूक%20लढवत%20आहे.%0A%0Aकृपया%20माझी%20संपूर्ण%20माहिती%20पाहा:%20https://public-working.vercel.app">
-     📲 WhatsApp वर शेअर करा
-  </a>
-</section>
+<a id="waShare" class="btn whatsapp" target="_blank">
+📢 WhatsApp वर शेअर करा
+</a>
 
-<!-- VOICE MESSAGE -->
-<section>
-  <h2>माझा आवाज</h2>
-  <audio controls>
-    <source src="prashant-kadam.mp3" type="audio/mpeg">
-    तुमचा ब्राउझर ऑडिओ सपोर्ट करत नाही.
-  </audio>
-</section>
+<a class="btn gallery"
+href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
+target="_blank">
+📸 रोजचे कामाचे फोटो
+</a>
 
-<!-- GALLERY (GOOGLE DRIVE) -->
-<section>
-  <h2>कामाचे फोटो</h2>
-  <a class="btn gallery"
-     target="_blank"
-     href="https://drive.google.com/drive/folders/PASTE_YOUR_FOLDER_ID_HERE?usp=sharing">
-     📸 रोजचे कामाचे फोटो पाहा
-  </a>
-</section>
+<a class="btn form" href="#form">
+📝 तक्रार / सूचना
+</a>
 
-<!-- SOCIAL LINKS -->
-<section>
-  <h2>सोशल मीडिया</h2>
+</div>
 
-  <a class="btn fb" target="_blank"
-     href="https://www.facebook.com/share/17ajVkgqU3/">
-     👍 Facebook
-  </a>
+<div id="form" class="card">
+<h3>तक्रार / सूचना फॉर्म</h3>
+<iframe src="https://forms.gle/YZgDz1vS6otwsvn58"></iframe>
+</div>
 
-  <a class="btn insta" target="_blank"
-     href="https://www.instagram.com/dadakadam1">
-     📸 Instagram
-  </a>
+<footer>
+© 2025 Prashant Public
+</footer>
 
-  <a class="btn yt" target="_blank"
-     href="https://www.youtube.com">
-     ▶️ YouTube
-  </a>
-</section>
+<script>
+fetch("data.json")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("dailyMsg").innerText = data.dailyMessage;
+  document.getElementById("waShare").href =
+    "https://wa.me/?text=" +
+    encodeURIComponent(data.dailyMessage + "\n\nवेबसाइट:\n" + window.location.href);
+})
+.catch(() => {
+  document.getElementById("dailyMsg").innerText = "संदेश लोड झाला नाही";
+});
+</script>
 
 </body>
 </html>
