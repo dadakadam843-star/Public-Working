@@ -78,19 +78,13 @@ target="_blank">
 © 2025 Prashant Public
 </footer>
 
-<script>
-fetch("data.json")
+  <script>
+fetch("https://opensheet.elk.sh/XXXXXXXXXXXXXXXX/Sheet1")
 .then(res => res.json())
 .then(data => {
-  document.getElementById("dailyMsg").innerText = data.dailyMessage;
-  document.getElementById("waShare").href =
-    "https://wa.me/?text=" +
-    encodeURIComponent(data.dailyMessage + "\n\nवेबसाइट:\n" + window.location.href);
-})
-.catch(() => {
-  document.getElementById("dailyMsg").innerText = "संदेश लोड झाला नाही";
+  document.getElementById("dailyMsg").innerText = data[0].dailyMessage;
 });
-</script>
+  </script>
 
 </body>
 </html>
