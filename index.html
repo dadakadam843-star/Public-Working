@@ -5,21 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prashant Public</title>
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MGLX64MVY5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MGLX64MVY5');
+</script>
+
 <style>
-body{margin:0;font-family:Arial;background:#f2f2f2}
-header{background:#ff9800;color:#fff;padding:15px;text-align:center}
-.card{background:#fff;max-width:420px;margin:15px auto;padding:15px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center}
-.card img{width:100%;border-radius:10px}
-.name{font-size:20px;font-weight:bold;margin-top:10px}
-.post{font-size:14px;color:#444}
-.msg{font-size:15px;line-height:1.7;margin:15px 0}
-.btn{display:block;padding:12px;margin:10px 0;color:#fff;text-decoration:none;border-radius:6px;font-weight:bold}
-.whatsapp{background:#25D366}
-.gallery{background:#ff5722}
-.form{background:#673ab7}
-audio{width:100%;margin-top:10px}
-iframe{width:100%;height:850px;border:none}
-footer{text-align:center;font-size:13px;color:#777;padding:10px}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
+}
+header{
+  background:#ff9800;
+  color:#fff;
+  padding:15px;
+  text-align:center;
+}
+.card{
+  background:#fff;
+  max-width:420px;
+  margin:15px auto;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  text-align:center;
+}
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+.name{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:10px;
+}
+.post{
+  color:#444;
+  font-size:14px;
+}
+.msg{
+  font-size:14px;
+  line-height:1.7;
+  margin:15px 0;
+  white-space:pre-line;
+}
+.btn{
+  display:block;
+  padding:12px;
+  margin:10px 0;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
+.whatsapp{background:#25D366;}
+.gallery{background:#ff5722;}
+.form{background:#673ab7;}
+audio{width:100%;margin-top:10px;}
+iframe{width:100%;height:850px;border:none;}
+footer{
+  text-align:center;
+  font-size:13px;
+  color:#777;
+  padding:10px;
+}
 </style>
 </head>
 
@@ -32,59 +86,69 @@ footer{text-align:center;font-size:13px;color:#777;padding:10px}
 
 <div class="card">
 
-<img src="your-photo.jpg" alt="Prashant Kadam">
+<!-- 🔴 PROFILE PHOTO (same folder मध्ये ठेवा) -->
+<img src="profile.jpg" alt="Prashant Kadam">
 
 <div class="name">प्रशांत राजू कदम</div>
 <div class="post">प्रभाग क्रमांक 3 (SC)</div>
 
+<!-- 🔴 DAILY MESSAGE (Google Sheet वरून येईल) -->
 <div class="msg" id="dailyMsg">
 लोड होत आहे...
 </div>
 
+<!-- 🔊 AUDIO -->
 <audio controls>
 <source src="prashant-kadam.mp3" type="audio/mpeg">
 </audio>
 
+<!-- 📢 WHATSAPP SHARE -->
 <a id="waShare" class="btn whatsapp" target="_blank">
-📢 WhatsApp वर शेअर करा
+📢 हा संदेश WhatsApp वर शेअर करा
 </a>
 
+<!-- 📸 GALLERY (Google Drive Folder Link टाका) -->
 <a class="btn gallery"
 href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
 target="_blank">
-📸 रोजचे कामाचे फोटो
+📸 रोजचे कामाचे फोटो पाहा
 </a>
 
+<!-- 📝 FORM -->
 <a class="btn form" href="#form">
-📝 तक्रार / सूचना
+📝 तक्रार / सूचना द्या
 </a>
 
 </div>
 
+<!-- GOOGLE FORM EMBED -->
 <div id="form" class="card">
 <h3>तक्रार / सूचना फॉर्म</h3>
-<iframe src="https://forms.gle/YZgDz1vS6otwsvn58"></iframe>
+<iframe src="https://forms.gle/F5fxGf8TCHKSvVor7"></iframe>
 </div>
-  
-<!-- VISITOR COUNTER -->
-<div style="text-align:center; font-size:14px; margin-top:10px;">
-  👁️ आजपर्यंत भेट देणारे:
-  <img src="https://hitwebcounter.com/counter/counter.php?page=12345678&style=0006&nbdigits=5&type=page&initCount=0"
-       title="Website Views"
-       Alt="counter" />
-</div>
-  
+
 <footer>
 © 2025 Prashant Public
 </footer>
 
-  <script>
-fetch("https://opensheet.elk.sh/G-MGLX64MVY5/Sheet1")
+<!-- 🔥 GOOGLE SHEET → DAILY MESSAGE AUTO LOAD -->
+<script>
+fetch("https://opensheet.elk.sh/1w0zzyX3BqfBNB9-cNRHmM3QolD2h1bXISO9T47if8V0/Sheet1")
 .then(res => res.json())
 .then(data => {
-  document.getElementById("dailyMsg").innerText = data[0].dailyMessage;
+  const msg = data[0].dailyMessage || "संदेश उपलब्ध नाही";
+
+  document.getElementById("dailyMsg").innerText = msg;
+
+  document.getElementById("waShare").href =
+    "https://wa.me/?text=" +
+    encodeURIComponent(msg + "\n\nवेबसाइट:\n" + window.location.href);
+})
+.catch(err => {
+  document.getElementById("dailyMsg").innerText =
+    "संदेश लोड झाला नाही.";
 });
-  </script>
+</script>
 
 </body>
 </html>
