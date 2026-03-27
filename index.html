@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +8,74 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
 }
 
 /* Header */
 header {
-  background: #007bff;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
   color: white;
-  padding: 15px;
+  padding: 25px;
   text-align: center;
 }
 
-/* Section */
+/* Sections */
 section {
   padding: 20px;
 }
 
-/* Services */
+/* Services Grid */
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 15px;
 }
 
+/* Cards */
 .card {
+  background: white;
   padding: 15px;
-  border: 1px solid #ddd;
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 /* Button */
 .btn {
   display: inline-block;
-  padding: 10px 15px;
-  background: green;
+  padding: 12px 18px;
+  background: #25D366;
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 22px;
+  text-decoration: none;
 }
 
 /* Footer */
 footer {
-  background: #333;
+  background: #222;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 12px;
 }
 </style>
 
@@ -63,34 +85,79 @@ footer {
 
 <header>
   <h1>Raj Enterprises Online Service</h1>
-  <p>All Digital Online Services Available</p>
+  <p>सर्व प्रकारच्या Digital Online सेवा येथे उपलब्ध</p>
 </header>
 
 <section>
   <h2>About Us</h2>
-  <p>We provide all types of digital online services like Ration Card, Aadhaar, Scholarship, Bulk SMS and WhatsApp Marketing.</p>
+  <p>Raj Enterprises Online Service मध्ये आम्ही सर्व प्रकारच्या Digital व शासकीय सेवा जलद, सोप्या व विश्वासार्ह पद्धतीने देतो.</p>
 </section>
 
 <section>
   <h2>Our Services</h2>
+
   <div class="services">
-    <div class="card">Ration Card Service</div>
-    <div class="card">Aadhaar Update</div>
-    <div class="card">Scholarship Form</div>
-    <div class="card">Bulk SMS Service</div>
-    <div class="card">WhatsApp Marketing</div>
-    <div class="card">Online Form Filling</div>
+
+    <div class="card">
+      <h3>बांधकाम कामगार सेवा</h3>
+      <p>नोंदणी, नूतनीकरण व सर्व कामे</p>
+    </div>
+
+    <div class="card">
+      <h3>आधार कार्ड सेवा</h3>
+      <p>PVC कार्ड, नाव/पत्ता बदल, डॉक्युमेंट अपडेट</p>
+    </div>
+
+    <div class="card">
+      <h3>मतदान कार्ड सेवा</h3>
+      <p>नाव बदल, नवीन कार्ड, 10 मिनिटात प्रिंट</p>
+    </div>
+
+    <div class="card">
+      <h3>रेशन कार्ड सेवा</h3>
+      <p>नवीन, नाव चढविणे/काढणे, पत्ता बदल</p>
+    </div>
+
+    <div class="card">
+      <h3>सरकारी योजना</h3>
+      <p>विधवा पेन्शन, श्रावण बाळ, बाल संगोपन</p>
+    </div>
+
+    <div class="card">
+      <h3>कार्ड सेवा</h3>
+      <p>आयुष्मान, आभा, ई-श्रम कार्ड</p>
+    </div>
+
+    <div class="card">
+      <h3>लायसन्स सेवा</h3>
+      <p>2 व 4 चाकी ड्रायव्हिंग लायसन्स</p>
+    </div>
+
+    <div class="card">
+      <h3>शासकीय लोन</h3>
+      <p>PM स्वनिधी, PM विश्वकर्मा, PMEGP, CMEGP</p>
+    </div>
+
   </div>
 </section>
 
 <section>
   <h2>Contact Us</h2>
-  <p>Mobile: 8484078016 / 9607023105</p>
-  <a class="btn" href="https://wa.me/918484078016">Chat on WhatsApp</a>
+  <p>📍 Raj Enterprises Online Service</p>
+  <p>📱 8484078016 / 9607023105</p>
+
+  <a class="btn" href="https://wa.me/918484078016?text=Namaskar%20mala%20tumchi%20service%20pahije%20-%20Kripaya%20mahiti%20dya">
+    WhatsApp वर संपर्क करा
+  </a>
 </section>
 
+<!-- Floating WhatsApp Button -->
+<a class="whatsapp-float" href="https://wa.me/918484078016?text=Namaskar%20mala%20tumchi%20service%20pahije">
+💬
+</a>
+
 <footer>
-  <p>© 2026 Raj Enterprises Online Service</p>
+  <p>© 2026 Raj Enterprises Online Service | All Rights Reserved</p>
 </footer>
 
 </body>
