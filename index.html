@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="mr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,12 @@
 
 <style>
 body {
-  font-family: Arial;
   margin: 0;
+  font-family: Arial;
   background: #f2f2f2;
 }
 
+/* Header */
 header {
   background: #007bff;
   color: white;
@@ -19,30 +20,54 @@ header {
   padding: 20px;
 }
 
-img {
-  width: 120px;
+header img {
+  width: 100px;
 }
 
+/* Section */
 .section {
   padding: 20px;
 }
 
-.card {
-  background: white;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 10px;
+/* Grid */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
 }
 
+/* Card */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Button */
 .btn {
   display: inline-block;
   padding: 10px;
-  background: green;
+  background: #25D366;
   color: white;
   text-decoration: none;
+  border-radius: 5px;
   margin-top: 10px;
 }
 
+/* Floating WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* Footer */
 footer {
   background: black;
   color: white;
@@ -56,39 +81,69 @@ footer {
 <body>
 
 <header>
-  <img src="logo.png">
+  <img src="logo.png" alt="Logo">
   <h1>Raj Enterprises Online Service</h1>
-  <p>सर्व Digital सेवा येथे उपलब्ध</p>
+  <p>सर्व Digital व शासकीय सेवा येथे उपलब्ध</p>
 </header>
 
 <div class="section">
-  <h2>Services</h2>
+<h2>आमच्या सेवा</h2>
 
-  <div class="card">
-    <h3>आधार कार्ड</h3>
-    <a class="btn" href="https://wa.me/918484078016">Apply Now</a>
-  </div>
+<div class="services">
 
-  <div class="card">
-    <h3>रेशन कार्ड</h3>
-    <a class="btn" href="https://wa.me/918484078016">Apply Now</a>
-  </div>
+<div class="card">
+<h3>PVC आधार कार्ड</h3>
+<a class="btn" href="https://wa.me/918484078016?text=PVC%20Aadhaar%20card%20pahije">Apply</a>
+</div>
 
-  <div class="card">
-    <h3>लोन सेवा</h3>
-    <a class="btn" href="https://wa.me/918484078016">Apply Now</a>
-  </div>
+<div class="card">
+<h3>आधार अपडेट</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Aadhaar%20update%20pahije">Apply</a>
+</div>
 
+<div class="card">
+<h3>मतदान कार्ड</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Voting%20card%20service%20pahije">Apply</a>
+</div>
+
+<div class="card">
+<h3>रेशन कार्ड</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Ration%20card%20service%20pahije">Apply</a>
+</div>
+
+<div class="card">
+<h3>लायसन सेवा</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Driving%20license%20pahije">Apply</a>
+</div>
+
+<div class="card">
+<h3>आयुष्मान / ई-श्रम</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Ayushman%20Eshram%20card%20pahije">Apply</a>
+</div>
+
+<div class="card">
+<h3>सरकारी योजना</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Sarkari%20yojana%20mahiti%20pahije">Apply</a>
+</div>
+
+<div class="card">
+<h3>शासकीय लोन</h3>
+<a class="btn" href="https://wa.me/918484078016?text=Loan%20service%20pahije">Apply</a>
+</div>
+
+</div>
 </div>
 
 <div class="section">
-  <h2>Contact</h2>
-  <p>📞 8484078016 / 9607023105</p>
-  <a class="btn" href="https://wa.me/918484078016">WhatsApp</a>
+<h2>संपर्क</h2>
+<p>📞 8484078016 / 9607023105</p>
+<a class="btn" href="https://wa.me/918484078016">WhatsApp करा</a>
 </div>
 
+<a class="whatsapp" href="https://wa.me/918484078016">💬</a>
+
 <footer>
-  <p>© 2026 Raj Enterprises</p>
+<p>© 2026 Raj Enterprises Online Service</p>
 </footer>
 
 </body>
