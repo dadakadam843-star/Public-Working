@@ -1,154 +1,97 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prashant Public</title>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MGLX64MVY5"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-MGLX64MVY5');
-</script>
+<title>Raj Enterprises Online Service</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f2f2f2;
+body {
+  margin: 0;
+  font-family: Arial;
 }
-header{
-  background:#ff9800;
-  color:#fff;
-  padding:15px;
-  text-align:center;
+
+/* Header */
+header {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
-.card{
-  background:#fff;
-  max-width:420px;
-  margin:15px auto;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.2);
-  text-align:center;
+
+/* Section */
+section {
+  padding: 20px;
 }
-.card img{
-  width:100%;
-  border-radius:12px;
+
+/* Services */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
-.name{
-  font-size:20px;
-  font-weight:bold;
-  margin-top:10px;
+
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
 }
-.post{
-  color:#444;
-  font-size:14px;
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
-.msg{
-  font-size:14px;
-  line-height:1.7;
-  margin:15px 0;
-  white-space:pre-line;
-}
-.btn{
-  display:block;
-  padding:12px;
-  margin:10px 0;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-}
-.whatsapp{background:#25D366;}
-.gallery{background:#ff5722;}
-.form{background:#673ab7;}
-audio{width:100%;margin-top:10px;}
-iframe{width:100%;height:850px;border:none;}
-footer{
-  text-align:center;
-  font-size:13px;
-  color:#777;
-  padding:10px;
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<h2>Prashant Public</h2>
-<p>जनतेसाठी सेवा</p>
+  <h1>Raj Enterprises Online Service</h1>
+  <p>All Digital Online Services Available</p>
 </header>
 
-<div class="card">
+<section>
+  <h2>About Us</h2>
+  <p>We provide all types of digital online services like Ration Card, Aadhaar, Scholarship, Bulk SMS and WhatsApp Marketing.</p>
+</section>
 
-<!-- 🔴 PROFILE PHOTO (same folder मध्ये ठेवा) -->
-<img src="your-photo.jpg" alt="Prashant Kadam">
+<section>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">Ration Card Service</div>
+    <div class="card">Aadhaar Update</div>
+    <div class="card">Scholarship Form</div>
+    <div class="card">Bulk SMS Service</div>
+    <div class="card">WhatsApp Marketing</div>
+    <div class="card">Online Form Filling</div>
+  </div>
+</section>
 
-<div class="name">प्रशांत राजू कदम</div>
-<div class="post">प्रभाग क्रमांक 3 (SC)</div>
-
-<!-- 🔴 DAILY MESSAGE (Google Sheet वरून येईल) -->
-<div class="msg" id="dailyMsg">
-लोड होत आहे...
-</div>
-
-<!-- 🔊 AUDIO -->
-<audio controls>
-<source src="prashant-kadam.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 📢 WHATSAPP SHARE -->
-<a id="waShare" class="btn whatsapp" target="_blank">
-📢 हा संदेश WhatsApp वर शेअर करा
-</a>
-
-<!-- 📸 GALLERY (Google Drive Folder Link टाका) -->
-<a class="btn gallery"
-href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID"
-target="_blank">
-📸 रोजचे कामाचे फोटो पाहा
-</a>
-
-<!-- 📝 FORM -->
-<a class="btn form" href="#form">
-📝 तक्रार / सूचना द्या
-</a>
-
-</div>
-
-<!-- GOOGLE FORM EMBED -->
-<div id="form" class="card">
-<h3>तक्रार / सूचना फॉर्म</h3>
-<iframe src="https://forms.gle/F5fxGf8TCHKSvVor7"></iframe>
-</div>
+<section>
+  <h2>Contact Us</h2>
+  <p>Mobile: 8484078016 / 9607023105</p>
+  <a class="btn" href="https://wa.me/918484078016">Chat on WhatsApp</a>
+</section>
 
 <footer>
-© 2025 Prashant Public
+  <p>© 2026 Raj Enterprises Online Service</p>
 </footer>
-
-<!-- 🔥 GOOGLE SHEET → DAILY MESSAGE AUTO LOAD -->
-<script>
-fetch("https://opensheet.elk.sh/1w0zzyX3BqfBNB9-cNRHmM3QolD2h1bXISO9T47if8V0/Sheet1")
-.then(res => res.json())
-.then(data => {
-  const msg = data[0].dailyMessage || "संदेश उपलब्ध नाही";
-
-  document.getElementById("dailyMsg").innerText = msg;
-
-  document.getElementById("waShare").href =
-    "https://wa.me/?text=" +
-    encodeURIComponent(msg + "\n\nवेबसाइट:\n" + window.location.href);
-})
-.catch(err => {
-  document.getElementById("dailyMsg").innerText =
-    "संदेश लोड झाला नाही.";
-});
-</script>
 
 </body>
 </html>
