@@ -9,18 +9,49 @@ body {margin:0;font-family:Arial}
 
 /* HEADER */
 .header {
-  background: linear-gradient(45deg,#00695c,#004d40);
+  background: linear-gradient(270deg,#004d40,#00796b,#004d40);
+  background-size:600% 600%;
+  animation:gradientMove 8s ease infinite;
   color:white;
-  padding:10px;
+  padding:20px;
 }
+
+@keyframes gradientMove {
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
+}
+
 .header-container {
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
-.logo {width:80px}
-.icon {width:100px}
-.title {text-align:center;flex:1}
+
+.logo {
+  width:150px;
+  border-radius:15px;
+  animation:zoom 2s;
+}
+
+.icon {
+  width:170px;
+  border-radius:15px;
+  animation:zoom 2s;
+}
+
+@keyframes zoom {
+  from{transform:scale(0.5);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.title {
+  text-align:center;
+  flex:1;
+}
+
+.title h1 {font-size:20px;margin:5px}
+.title h3 {color:yellow}
 
 /* SECTION */
 section {padding:20px}
@@ -91,7 +122,9 @@ button {
 /* MOBILE */
 @media(max-width:600px){
   .gallery img {width:100%}
-  .logo,.icon {width:50px}
+  .logo {width:90px}
+  .icon {width:100px}
+  .title h1 {font-size:14px}
 }
 </style>
 
@@ -136,8 +169,10 @@ window.onload=function(){
     <img src="logo.jpg" class="logo">
 
     <div class="title">
-      <h3>सेवक संघटित व असंघटित आरोग्य कामगार संघटना, महाराष्ट्र राज्य</h3>
-      <p><b>मा. उमरफारूक ककमरी</b><br>संस्थापक अध्यक्ष</p>
+      <h1>सेवक संघटित व असंघटित आरोग्य कामगार संघटना</h1>
+      <p>महाराष्ट्र राज्य</p>
+      <h3>मा. उमरफारूक ककमरी</h3>
+      <p>संस्थापक अध्यक्ष</p>
     </div>
 
     <img src="icon.jpg" class="icon">
@@ -199,13 +234,9 @@ window.onload=function(){
 
 <p>
 कामगाराच्या न्यायासाठी, कामगाराच्या हक्कासाठी...<br><br>
-
 आजही कामगार घाम गाळतो, पण त्याला हक्कासाठी लढावं लागतं…<br><br>
-
 ✊ कामगार हा देशाचा कणा आहे<br>
 ✊ त्याच्या श्रमावरच देश उभा आहे<br>
-✊ पण त्यालाच योग्य हक्क मिळत नाही<br><br>
-
 🔥 “जोपर्यंत कामगार उभा राहत नाही, तोपर्यंत समाज बदलत नाही!” 🔥
 </p>
 
