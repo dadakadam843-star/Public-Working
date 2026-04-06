@@ -1,150 +1,104 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raj Enterprises Online Service</title>
+<title>सेवक संघटित व असंघटित आरोग्य कामगार संघटना</title>
 
 <style>
 body {
-  margin: 0;
   font-family: Arial;
-  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
-/* Header */
 header {
-  background: #007bff;
+  background: #00796b;
   color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-header img {
-  width: 100px;
-}
-
-/* Section */
-.section {
-  padding: 20px;
-}
-
-/* Grid */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-}
-
-/* Card */
-.card {
-  background: white;
   padding: 15px;
-  border-radius: 10px;
   text-align: center;
 }
 
-/* Button */
-.btn {
-  display: inline-block;
-  padding: 10px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
+section {
+  padding: 20px;
 }
 
-/* Floating WhatsApp */
+h2 {
+  color: #00796b;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  background: white;
+  padding: 20px;
+  border: 2px solid black;
+}
+
 .whatsapp {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #25D366;
+  background: green;
   color: white;
   padding: 15px;
   border-radius: 50%;
   text-decoration: none;
 }
-
-/* Footer */
-footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
 </style>
+
+<script>
+function showPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+window.onload = function() {
+  setTimeout(showPopup, 2000);
+};
+</script>
 
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
-  <h1>Raj Enterprises Online Service</h1>
-  <p>सर्व Digital व शासकीय सेवा येथे उपलब्ध</p>
+<h1>सेवक संघटित व असंघटित आरोग्य कामगार संघटना</h1>
+<p>महाराष्ट्र राज्य</p>
 </header>
 
-<div class="section">
-<h2>आमच्या सेवा</h2>
+<section>
+<h2>आमच्याबद्दल</h2>
+<p>ही संघटना आरोग्य कामगारांसाठी काम करते. कामगारांचे हक्क, योजना आणि मदत देणे हे आमचे उद्दिष्ट आहे.</p>
+</section>
 
-<div class="services">
+<section>
+<h2>योजना</h2>
+<ul>
+<li>आरोग्य योजना</li>
+<li>शिष्यवृत्ती योजना</li>
+<li>अपघात मदत</li>
+<li>पेन्शन योजना</li>
+</ul>
+</section>
 
-<div class="card">
-<h3>PVC आधार कार्ड</h3>
-<a class="btn" href="https://wa.me/918484078016?text=PVC%20Aadhaar%20card%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>आधार अपडेट</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Aadhaar%20update%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>मतदान कार्ड</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Voting%20card%20service%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>रेशन कार्ड</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Ration%20card%20service%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>लायसन सेवा</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Driving%20license%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>आयुष्मान / ई-श्रम</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Ayushman%20Eshram%20card%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>सरकारी योजना</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Sarkari%20yojana%20mahiti%20pahije">Apply</a>
-</div>
-
-<div class="card">
-<h3>शासकीय लोन</h3>
-<a class="btn" href="https://wa.me/918484078016?text=Loan%20service%20pahije">Apply</a>
-</div>
-
-</div>
-</div>
-
-<div class="section">
+<section>
 <h2>संपर्क</h2>
-<p>📞 8484078016 / 9607023105</p>
-<a class="btn" href="https://wa.me/918484078016">WhatsApp करा</a>
+<p>मोबाईल: 9876543210</p>
+</section>
+
+<!-- Popup -->
+<div id="popup" class="popup">
+<h3>महत्वाची सूचना</h3>
+<p>नवीन योजना सुरु झाली आहे. लगेच नोंदणी करा!</p>
+<button onclick="closePopup()">बंद करा</button>
 </div>
 
-<a class="whatsapp" href="https://wa.me/918484078016">💬</a>
-
-<footer>
-<p>© 2026 Raj Enterprises Online Service</p>
-</footer>
+<!-- WhatsApp -->
+<a class="whatsapp" href="https://wa.me/919876543210" target="_blank">Chat</a>
 
 </body>
 </html>
